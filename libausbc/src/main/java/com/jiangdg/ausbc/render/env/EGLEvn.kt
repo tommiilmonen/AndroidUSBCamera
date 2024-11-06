@@ -140,7 +140,7 @@ class EGLEvn {
         }
         // 交换双重缓冲数据
         // 即将渲染数据(后端缓冲区)输出到目标窗口(Surface)(前端缓冲区)
-        if (! EGL14.eglSwapBuffers(mEglDisplay, mEglSurface)) {
+        if (mSurface?.isValid == true && !EGL14.eglSwapBuffers(mEglDisplay, mEglSurface)) {
             loggerError("Swap buffers")
         }
     }
